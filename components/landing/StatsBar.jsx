@@ -1,4 +1,4 @@
-﻿'use client';
+'use client';
 
 import { useEffect, useState } from 'react';
 import { motion, useInView } from 'framer-motion';
@@ -32,12 +32,18 @@ export default function StatsBar() {
   ];
 
   return (
-    <section className="border-y border-border bg-surface px-4 py-8">
-      <div className="mx-auto grid w-full max-w-6xl grid-cols-1 divide-y divide-border md:grid-cols-3 md:divide-x md:divide-y-0">
+    <section className="border-y border-border bg-surface px-4 py-6 md:py-8">
+      <div className="mx-auto grid w-full max-w-6xl grid-cols-3 gap-3 md:gap-0 md:divide-x md:divide-y-0">
         {items.map((item) => (
-          <motion.div key={item.label} initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="py-4 text-center">
-            <p className="text-3xl font-bold text-primary"><Counter target={item.value} /></p>
-            <p className="mt-1 text-sm tracking-wide text-textSecondary">{item.label}</p>
+          <motion.div
+            key={item.label}
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="rounded-2xl border border-border/80 bg-background/60 px-3 py-4 text-center backdrop-blur-sm md:rounded-none md:border-0 md:bg-transparent md:px-6"
+          >
+            <p className="text-xl font-bold text-primary sm:text-2xl md:text-3xl"><Counter target={item.value} /></p>
+            <p className="mt-1 text-[11px] leading-tight tracking-[0.14em] text-textSecondary sm:text-xs md:text-sm md:tracking-wide">{item.label}</p>
           </motion.div>
         ))}
       </div>

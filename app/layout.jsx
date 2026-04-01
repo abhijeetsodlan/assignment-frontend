@@ -1,4 +1,4 @@
-﻿import { Inter, Manrope } from 'next/font/google';
+import { Inter, Manrope } from 'next/font/google';
 import './globals.css';
 import { ThemeProvider } from '@/context/ThemeContext';
 import Navbar from '@/components/Navbar';
@@ -16,9 +16,16 @@ const display = Manrope({
   weight: ['500', '600', '700', '800']
 });
 
+const siteImage = 'https://cdn.displate.com/artwork/270x380/2021-05-18/4228f287d5f02898cdca54134b02df4e_baec7ebe2fa8df8e03d9d6b3b3310344.jpg';
+
 export const metadata = {
   title: 'BlogSphere | Cinematic Blog Experience',
-  description: 'A thoughtful space for stories, ideas, and perspectives that expand the mind.'
+  description: 'A thoughtful space for stories, ideas, and perspectives that expand the mind.',
+  icons: {
+    icon: siteImage,
+    shortcut: siteImage,
+    apple: siteImage,
+  },
 };
 
 export default function RootLayout({ children }) {
