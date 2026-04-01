@@ -1,0 +1,174 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+  --color-primary: 217 91% 60%;
+  --color-secondary: 24 95% 53%;
+  --color-accent: 271 81% 56%;
+  --color-background: 210 20% 98%;
+  --color-surface: 0 0% 100%;
+  --color-border: 214 32% 91%;
+  --color-text-primary: 222 47% 11%;
+  --color-text-secondary: 215 16% 47%;
+  scroll-behavior: smooth;
+}
+
+.dark {
+  color-scheme: dark;
+  --color-primary: 217 91% 60%;
+  --color-secondary: 24 95% 53%;
+  --color-accent: 271 81% 56%;
+  --color-background: 240 18% 5%;
+  --color-surface: 240 19% 8%;
+  --color-border: 240 24% 15%;
+  --color-text-primary: 210 40% 96%;
+  --color-text-secondary: 215 20% 65%;
+}
+
+html,
+body {
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Cg transform='rotate(-25 16 16)'%3E%3Crect x='6' y='13' width='15' height='6' rx='1.2' fill='%23FBBF24'/%3E%3Crect x='20.5' y='13' width='4.5' height='6' fill='%23F59E0B'/%3E%3Crect x='24.8' y='13' width='2' height='6' fill='%23FCA5A5'/%3E%3Cpolygon points='6,13 2.5,16 6,19' fill='%23E5E7EB'/%3E%3Cpolygon points='3.8,16 2.2,16 3.2,15.2' fill='%23111118'/%3E%3C/g%3E%3C/svg%3E") 2 16, auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+a,
+button,
+[role='button'],
+input[type='submit'],
+input[type='button'],
+select {
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Cg transform='rotate(-25 16 16)'%3E%3Crect x='6' y='13' width='15' height='6' rx='1.2' fill='%23F97316'/%3E%3Crect x='20.5' y='13' width='4.5' height='6' fill='%23EA580C'/%3E%3Crect x='24.8' y='13' width='2' height='6' fill='%23FCA5A5'/%3E%3Cpolygon points='6,13 2.5,16 6,19' fill='%23F8FAFC'/%3E%3Cpolygon points='3.8,16 2.2,16 3.2,15.2' fill='%230A0A0F'/%3E%3C/g%3E%3C/svg%3E") 2 16, pointer;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes drawLine {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes ambientPan {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes navbarVibrate {
+  0% {
+    transform: scale(1.05) translateX(0);
+  }
+  20% {
+    transform: scale(1.05) translateX(-1px);
+  }
+  40% {
+    transform: scale(1.05) translateX(1px);
+  }
+  60% {
+    transform: scale(1.05) translateX(-1px);
+  }
+  80% {
+    transform: scale(1.05) translateX(1px);
+  }
+  100% {
+    transform: scale(1.05) translateX(0);
+  }
+}
+
+.animate-navbar-vibrate {
+  animation: navbarVibrate 0.22s linear 1;
+}
+
+@keyframes navbarItemVibrate {
+  0% {
+    transform: translateX(0);
+  }
+  20% {
+    transform: translateX(-1px);
+  }
+  40% {
+    transform: translateX(1px);
+  }
+  60% {
+    transform: translateX(-1px);
+  }
+  80% {
+    transform: translateX(1px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.animate-navbar-item-vibrate {
+  animation: navbarItemVibrate 0.2s linear 1;
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar,
+.scrollbar-hidden::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-hidden {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.theme-transitioning,
+.theme-transitioning * {
+  transition-property: background-color, color, border-color, outline-color, text-decoration-color, fill, stroke, box-shadow;
+  transition-duration: 320ms;
+  transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .theme-transitioning,
+  .theme-transitioning * {
+    transition: none !important;
+  }
+}
