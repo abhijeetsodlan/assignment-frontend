@@ -6,12 +6,44 @@ import { fetchBlogBySlugServer } from '@/lib/api';
 
 export async function generateMetadata({ params }) {
   const blog = await fetchBlogBySlugServer(params.slug);
-  if (!blog) return { title: 'Blog Not Found' };
+  if (!blog) {
+    return {
+      title: 'Blog Not Found',
+      description: 'The requested article could not be found.',
+      robots: {
+        index: false,
+        follow: false
+      }
+    };
+  }
 
   return {
-    title: `${blog.title} | BlogSphere`,
+    title: blog.title,
     description: blog.excerpt,
+    keywords: [blog.category, ...(blog.tags || []), blog.author?.name || 'BlogSphere'].filter(Boolean),
+    alternates: {
+      canonical: `/blog/${blog.slug}`
+    },
     openGraph: {
+      type: 'article',
+      url: `/blog/${blog.slug}`,
+      title: blog.title,
+      description: blog.excerpt,
+      siteName: 'BlogSphere',
+      publishedTime: blog.publishedAt,
+      authors: blog.author?.name ? [blog.author.name] : undefined,
+      tags: blog.tags || [],
+      images: [
+        {
+          url: blog.thumbnail,
+          width: 1200,
+          height: 630,
+          alt: blog.title
+        }
+      ]
+    },
+    twitter: {
+      card: 'summary_large_image',
       title: blog.title,
       description: blog.excerpt,
       images: [blog.thumbnail]

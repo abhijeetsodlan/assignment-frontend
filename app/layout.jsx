@@ -17,15 +17,53 @@ const display = Manrope({
 });
 
 const siteImage = 'https://cdn.displate.com/artwork/270x380/2021-05-18/4228f287d5f02898cdca54134b02df4e_baec7ebe2fa8df8e03d9d6b3b3310344.jpg';
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
 
 export const metadata = {
-  title: 'BlogSphere | Cinematic Blog Experience',
-  description: 'A thoughtful space for stories, ideas, and perspectives that expand the mind.',
+  metadataBase: new URL(siteUrl),
+  title: {
+    default: 'BlogSphere | Modern Blog Platform',
+    template: '%s | BlogSphere'
+  },
+  description: 'BlogSphere is a modern editorial blog platform for discovering, reading, and managing articles across multiple categories.',
+  keywords: ['BlogSphere', 'blog platform', 'Next.js blog', 'editorial website', 'blog management', 'content platform'],
+  applicationName: 'BlogSphere',
+  authors: [{ name: 'Abhijeet' }],
+  creator: 'Abhijeet',
+  publisher: 'BlogSphere',
+  alternates: {
+    canonical: '/'
+  },
+  openGraph: {
+    type: 'website',
+    url: siteUrl,
+    title: 'BlogSphere | Modern Blog Platform',
+    description: 'Discover, read, and manage thoughtful blog content with a polished editorial experience.',
+    siteName: 'BlogSphere',
+    images: [
+      {
+        url: siteImage,
+        width: 1200,
+        height: 630,
+        alt: 'BlogSphere preview image'
+      }
+    ]
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'BlogSphere | Modern Blog Platform',
+    description: 'Discover, read, and manage thoughtful blog content with a polished editorial experience.',
+    images: [siteImage]
+  },
+  robots: {
+    index: true,
+    follow: true
+  },
   icons: {
     icon: siteImage,
     shortcut: siteImage,
-    apple: siteImage,
-  },
+    apple: siteImage
+  }
 };
 
 export default function RootLayout({ children }) {

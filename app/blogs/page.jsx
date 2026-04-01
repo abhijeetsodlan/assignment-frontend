@@ -1,12 +1,24 @@
-﻿import { Suspense } from 'react';
+import { Suspense } from 'react';
 import BlogDiscoverControls from '@/components/BlogDiscoverControls';
 import BlogList from '@/components/BlogList';
 import Pagination from '@/components/Pagination';
 import { fetchBlogsServer } from '@/lib/api';
 
 export const metadata = {
-  title: 'Blogs | BlogSphere',
-  description: 'Browse the latest stories across technology, travel, health, lifestyle, and finance.'
+  title: 'Blogs',
+  description: 'Browse the latest stories across technology, travel, health, lifestyle, and finance on BlogSphere.',
+  alternates: {
+    canonical: '/blogs'
+  },
+  openGraph: {
+    title: 'Blogs | BlogSphere',
+    description: 'Browse the latest stories across technology, travel, health, lifestyle, and finance on BlogSphere.',
+    url: '/blogs'
+  },
+  twitter: {
+    title: 'Blogs | BlogSphere',
+    description: 'Browse the latest stories across technology, travel, health, lifestyle, and finance on BlogSphere.'
+  }
 };
 
 export default async function BlogsPage({ searchParams }) {
