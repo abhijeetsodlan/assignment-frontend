@@ -15,6 +15,11 @@
   scroll-behavior: smooth;
 }
 
+::selection {
+  background: hsl(var(--color-secondary) / 0.24);
+  color: hsl(var(--color-text-primary));
+}
+
 .dark {
   color-scheme: dark;
   --color-primary: 217 91% 60%;
@@ -25,6 +30,11 @@
   --color-border: 240 24% 15%;
   --color-text-primary: 210 40% 96%;
   --color-text-secondary: 215 20% 65%;
+}
+
+.dark ::selection {
+  background: hsl(var(--color-accent) / 0.32);
+  color: hsl(var(--color-text-primary));
 }
 
 html,
@@ -172,3 +182,6 @@ html {
     transition: none !important;
   }
 }
+
+
+
